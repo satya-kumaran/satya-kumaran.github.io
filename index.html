@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sathyaseelan Kumaran — Systems, road trips, and Ferraris</title>
-<meta name="description" content="Sathyaseelan Kumaran — Principal Software Engineer at Microsoft, based in Seattle. Distributed systems and cloud data platforms by day, chasing Rajasthan sunsets, Sunburn basslines, and Ferrari red by the rest of the time." />
+<title>Sathyaseelan Kumaran</title>
+<meta name="description" content="Sathyaseelan Kumaran — engineer, traveler, married, competitive at table tennis, and unreasonably attached to Ferrari. Based in Seattle." />
 <meta name="author" content="Sathyaseelan Kumaran" />
 <!-- Open Graph -->
 <meta property="og:type" content="profile" />
-<meta property="og:title" content="Sathyaseelan Kumaran — Systems, road trips, and Ferraris" />
-<meta property="og:description" content="Principal Software Engineer at Microsoft. Distributed systems and cloud data platforms — with a well-documented weakness for travel and anything Ferrari red." />
+<meta property="og:title" content="Sathyaseelan Kumaran" />
+<meta property="og:description" content="Engineer, traveler, married, competitive at table tennis, and unreasonably attached to Ferrari." />
 <meta property="og:url" content="https://satya-kumaran.github.io" />
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,33 +18,31 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◆</text></svg>" />
 <style>
   :root{
-    --bg:#0d0f14;
-    --bg-soft:#12151d;
-    --card:#161a24;
-    --card-hover:#1b2130;
-    --text:#e8eaf0;
-    --muted:#9aa2b4;
-    --faint:#6b7387;
-    --line:#242a38;
-    --accent:#F75C7E;
-    --accent-2:#0A66C2;
-    --accent-glow:rgba(247,92,126,.35);
+    --bg:#18140f;
+    --bg-soft:#201a14;
+    --card:#241d16;
+    --card-hover:#2b2219;
+    --text:#f3ece0;
+    --muted:#b6a999;
+    --faint:#7d7263;
+    --line:#3a3024;
+    --accent:#e0713c;
+    --accent-2:#5c8a72;
     --mono:'JetBrains Mono',ui-monospace,monospace;
     --serif:'Fraunces',Georgia,serif;
     --sans:'Inter',system-ui,-apple-system,sans-serif;
   }
   [data-theme="light"]{
-    --bg:#f7f7f4;
+    --bg:#faf6ee;
     --bg-soft:#ffffff;
     --card:#ffffff;
-    --card-hover:#fbfbf9;
-    --text:#161a24;
-    --muted:#54607a;
-    --faint:#8b94a8;
-    --line:#e6e6df;
-    --accent:#d6355b;
-    --accent-2:#0A66C2;
-    --accent-glow:rgba(214,53,91,.18);
+    --card-hover:#f6f0e3;
+    --text:#211c15;
+    --muted:#5c5343;
+    --faint:#8f8471;
+    --line:#e5dbc7;
+    --accent:#bf4e24;
+    --accent-2:#3c6b53;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -59,16 +57,8 @@
     transition:background .5s ease,color .5s ease;
   }
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--accent-glow);color:var(--text)}
-
-  /* ---------- cursor glow ---------- */
-  .glow{
-    position:fixed;top:0;left:0;width:520px;height:520px;border-radius:50%;
-    pointer-events:none;z-index:0;
-    background:radial-gradient(circle,var(--accent-glow),transparent 62%);
-    transform:translate(-50%,-50%);opacity:0;transition:opacity .4s ease;
-    filter:blur(6px);
-  }
+  ::selection{background:color-mix(in srgb,var(--accent) 35%,transparent);color:var(--text)}
+  button{font:inherit}
 
   /* ---------- nav ---------- */
   nav{
@@ -81,8 +71,7 @@
   }
   nav.scrolled{border-bottom:1px solid var(--line)}
   .brand{font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;font-weight:500;display:flex;align-items:center;gap:.5rem}
-  .brand .dot{color:var(--accent);animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .brand .dot{color:var(--accent)}
   .nav-links{display:flex;align-items:center;gap:clamp(14px,2.5vw,30px)}
   .nav-links a{font-size:.86rem;color:var(--muted);transition:color .25s;position:relative}
   .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--accent);transition:width .25s}
@@ -95,7 +84,7 @@
     width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.9rem;
     display:grid;place-items:center;transition:all .3s;
   }
-  .toggle:hover{color:var(--text);border-color:var(--accent);transform:rotate(20deg)}
+  .toggle:hover{color:var(--text);border-color:var(--accent)}
 
   /* ---------- layout ---------- */
   main{position:relative;z-index:1}
@@ -108,27 +97,28 @@
 
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:120px;padding-bottom:80px}
+  .hero .tag{font-family:var(--mono);font-size:.82rem;color:var(--faint);margin-bottom:1.6rem;letter-spacing:.02em}
   .hero h1{
     font-family:var(--serif);font-weight:500;
-    font-size:clamp(2.6rem,7.5vw,5.4rem);line-height:1.02;letter-spacing:-.02em;
+    font-size:clamp(2.6rem,7.5vw,5.2rem);line-height:1.05;letter-spacing:-.02em;
     margin-bottom:1.6rem;
   }
   .hero h1 .accent{
-    font-style:italic;position:relative;white-space:nowrap;
-    background:linear-gradient(120deg,var(--accent),var(--accent-2));
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-style:italic;color:var(--accent);
+    text-decoration:underline;text-decoration-style:wavy;text-decoration-thickness:1.5px;
+    text-underline-offset:6px;text-decoration-color:color-mix(in srgb,var(--accent) 55%,transparent);
   }
-  .hero .lead{font-size:clamp(1.05rem,2vw,1.32rem);color:var(--muted);max-width:50ch;margin-bottom:.6rem}
-  .hero .role{font-family:var(--mono);font-size:.85rem;color:var(--faint);margin-bottom:2.6rem;letter-spacing:.01em}
-  .hero .role b{color:var(--text);font-weight:500}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.32rem);color:var(--muted);max-width:54ch;margin-bottom:.6rem}
+  .hero .role{font-size:clamp(.98rem,1.4vw,1.08rem);color:var(--muted);max-width:58ch;margin-bottom:2.6rem}
+  .hero .role b{color:var(--text);font-weight:600}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .btn{
     display:inline-flex;align-items:center;gap:.5rem;
     padding:.72rem 1.3rem;border-radius:999px;font-size:.9rem;font-weight:500;
-    border:1px solid var(--line);transition:all .28s;cursor:pointer;
+    border:1px solid var(--line);transition:all .28s;cursor:pointer;background:none;color:inherit;
   }
   .btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
-  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -12px var(--accent-glow)}
+  .btn.primary:hover{transform:translateY(-2px)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
   .btn .arr{transition:transform .28s}
   .btn:hover .arr{transform:translate(3px,-3px)}
@@ -141,60 +131,51 @@
   .about p{font-size:clamp(1.1rem,2.2vw,1.5rem);font-family:var(--serif);font-weight:400;line-height:1.5;max-width:62ch;color:var(--text)}
   .about p + p{margin-top:1.3rem;font-size:clamp(1rem,1.7vw,1.15rem);font-family:var(--sans);color:var(--muted)}
 
-  /* ---------- principles ---------- */
-  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .principle{background:var(--bg);padding:1.9rem;transition:background .3s;position:relative}
-  .principle:hover{background:var(--card-hover)}
-  .principle .num{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-bottom:1rem}
-  .principle h3{font-family:var(--serif);font-weight:500;font-size:1.18rem;margin-bottom:.5rem}
-  .principle p{font-size:.92rem;color:var(--muted)}
-
-  /* ---------- work ---------- */
-  .work-card{
-    display:block;border:1px solid var(--line);border-radius:18px;padding:clamp(1.6rem,4vw,2.6rem);
-    background:var(--card);position:relative;overflow:hidden;transition:transform .35s,border-color .35s;
+  /* ---------- into (tabs) ---------- */
+  .into-tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+  .into-tab{
+    padding:.65rem 1.1rem;border-radius:999px;border:1px solid var(--line);
+    color:var(--muted);cursor:pointer;font-size:.88rem;transition:all .25s;background:var(--bg-soft);
   }
-  .work-card::before{content:'';position:absolute;inset:0;background:radial-gradient(600px circle at var(--mx,50%) var(--my,0%),var(--accent-glow),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none}
-  .work-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
-  .work-card:hover::before{opacity:1}
-  .work-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
-  .work-head h3{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:500}
-  .work-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));padding:.3rem .7rem;border-radius:999px}
-  .work-card .desc{color:var(--muted);max-width:62ch;margin-bottom:1.4rem;font-size:1.02rem}
-  .work-card .desc b{color:var(--text);font-weight:600}
-  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+  .into-tab:hover{color:var(--text);border-color:var(--accent)}
+  .into-tab.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+  .into-panel{
+    border:1px solid var(--line);border-radius:18px;padding:clamp(1.6rem,4vw,2.6rem);
+    background:var(--card);min-height:220px;
+  }
+  .into-panel h3{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.9rem);font-weight:500;margin-bottom:.9rem}
+  .into-panel p{color:var(--muted);max-width:62ch;font-size:1.02rem}
+  .into-panel p + p{margin-top:.9rem}
+  .into-panel p b{color:var(--text);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
   .chip{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);padding:.32rem .7rem;border-radius:7px}
-  .work-link{font-family:var(--mono);font-size:.85rem;color:var(--text);display:inline-flex;align-items:center;gap:.5rem}
-  .work-link .arr{transition:transform .28s}
-  .work-card:hover .work-link .arr{transform:translate(3px,-3px)}
-  .more-note{margin-top:1.6rem;color:var(--faint);font-size:.9rem;font-family:var(--mono)}
-  .more-note a{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
-  .more-note a:hover{border-color:var(--accent)}
+  .into-link{font-family:var(--mono);font-size:.85rem;color:var(--accent);display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem}
+  .into-link .arr{transition:transform .28s}
+  .into-link:hover .arr{transform:translate(3px,-3px)}
 
-  /* ---------- stack ---------- */
-  .stack-row{display:flex;flex-wrap:wrap;gap:.8rem}
-  .tech{
-    font-family:var(--mono);font-size:.9rem;padding:.55rem 1rem;border:1px solid var(--line);border-radius:10px;
-    color:var(--muted);transition:all .25s;cursor:default;
+  /* ---------- travel stamps ---------- */
+  .stamp-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1.6rem}
+  .stamp-btn{
+    padding:.6rem 1.1rem;border-radius:10px;border:1px solid var(--line);background:var(--bg-soft);
+    color:var(--muted);cursor:pointer;font-size:.86rem;transition:all .22s;
   }
-  .tech:hover{color:var(--text);border-color:var(--accent);transform:translateY(-3px)}
-
-  /* ---------- passport / elsewhere ---------- */
-  .passport-intro{font-size:clamp(1.05rem,2vw,1.3rem);font-family:var(--serif);max-width:60ch;color:var(--text);margin-bottom:2.6rem}
-  .stamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
-  .stamp{
-    border:1px dashed var(--line);border-radius:14px;padding:1.5rem 1.6rem;
-    transition:border-color .3s,transform .3s;position:relative;
+  .stamp-btn:hover{border-color:var(--accent);color:var(--text)}
+  .stamp-btn.active{background:var(--accent);border-color:var(--accent);color:#1a1208}
+  .stamp-detail{
+    border:1px solid var(--line);border-radius:16px;padding:clamp(1.4rem,3.5vw,2.2rem);
+    background:var(--card);font-size:1.02rem;color:var(--muted);min-height:100px;
+    opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;
   }
-  .stamp:hover{border-color:var(--accent);transform:translateY(-3px)}
-  .stamp .place{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
-  .stamp p{font-size:.98rem;color:var(--muted)}
-  .stamp p b{color:var(--text);font-weight:600}
+  .stamp-detail.show{opacity:1;transform:none}
+  .stamp-detail b{color:var(--text);font-weight:600}
 
-  /* ---------- offclock ---------- */
-  .offclock p{font-size:clamp(1.1rem,2.3vw,1.5rem);font-family:var(--serif);max-width:56ch;line-height:1.5}
-  .offclock .hl{color:var(--accent);font-style:italic}
-  .offclock p + p{margin-top:1.1rem}
+  /* ---------- rally game ---------- */
+  .rally-wrap{border:1px solid var(--line);border-radius:18px;padding:clamp(1.4rem,3.5vw,2.2rem);background:var(--card)}
+  .rally-row{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+  .rally-score{font-family:var(--mono);font-size:.95rem;color:var(--muted)}
+  .rally-score b{color:var(--accent);font-size:1.3rem}
+  #rallyCanvas{width:100%;max-width:640px;height:150px;display:block;border-radius:12px;background:var(--bg-soft);border:1px solid var(--line);cursor:pointer;touch-action:manipulation}
+  .rally-hint{font-family:var(--mono);font-size:.78rem;color:var(--faint);margin-top:.9rem}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:clamp(50px,8vw,90px) clamp(20px,6vw,80px);text-align:center;position:relative;z-index:1}
@@ -214,15 +195,14 @@
 </style>
 </head>
 <body>
-<div class="glow" id="glow"></div>
 
 <nav id="nav">
   <a href="#top" class="brand"><span class="dot">◆</span> Sathyaseelan Kumaran</a>
   <div class="nav-links">
     <a href="#about" class="hide-sm">About</a>
-    <a href="#work" class="hide-sm">Work</a>
-    <a href="#elsewhere" class="hide-sm">Elsewhere</a>
-    <a href="#offclock" class="hide-sm">Off the clock</a>
+    <a href="#into" class="hide-sm">What I'm into</a>
+    <a href="#travel" class="hide-sm">Travel</a>
+    <a href="#rally" class="hide-sm">Rally with me</a>
     <button class="toggle" id="toggle" aria-label="Toggle theme">☾</button>
   </div>
 </nav>
@@ -231,12 +211,12 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="eyebrow reveal">Seattle · Principal Software Engineer, Microsoft</p>
-    <h1 class="reveal" data-d="1">Systems that hold their shape. A life that <span class="accent">doesn't sit still.</span></h1>
-    <p class="lead reveal" data-d="2">I design distributed systems by day. Off the clock I'm chasing Rajasthan sunsets, Sunburn basslines, and any excuse to stand near a Ferrari.</p>
-    <p class="role reveal" data-d="3">Distributed systems &amp; cloud data platforms — <b>Microsoft Fabric OneLake</b>, <b>Azure</b> — married, table-tennis competitive, and permanently jet-lagged from the last trip.</p>
+    <p class="tag reveal">seattle · married · engineer · traveler · table tennis nerd</p>
+    <h1 class="reveal" data-d="1">Hi, I'm Sathya. I build things and then <span class="accent">go looking for a flight deal.</span></h1>
+    <p class="lead reveal" data-d="2">Some days that means designing a distributed system. Other days it means arguing about F1 strategy, losing a table tennis rally, or getting talked into one more temple.</p>
+    <p class="role reveal" data-d="3">By day: <b>distributed systems &amp; cloud data platforms</b> at Microsoft Fabric OneLake. By the rest of the day: recovering from the last trip and planning the next one.</p>
     <div class="cta-row reveal" data-d="4">
-      <a class="btn primary" href="#about">Get to know me <span class="arr">↗</span></a>
+      <a class="btn primary" href="#into">What I'm into <span class="arr">↗</span></a>
       <a class="btn ghost" href="https://github.com/satya-kumaran" target="_blank" rel="noopener">GitHub</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/sathyaseelan-kumaran/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -248,99 +228,46 @@
     <p class="eyebrow reveal">Who I am</p>
     <div class="about-grid">
       <div>
-        <p class="reveal" data-d="1">I'm an engineer who's happiest when a system is <b>boring in production and interesting to build</b> — and I'm just as happiest with a boarding pass in hand.</p>
-        <p class="reveal" data-d="2">Most of my working hours go to .NET, Azure, backend platforms, and developer experience, and I still enjoy being close to the code after all these years. The rest of my hours go to a big, loud extended family, a very patient wife, and a travel habit that has taken me through Rajasthan, Goa, Cambodia, the Philippines, and Hong Kong — usually with a camera and questionable luggage packing.</p>
-        <p class="reveal" data-d="3">Lately I'm curious about how AI is changing documentation, review, and software delivery — and about which country to disappear to next.</p>
+        <p class="reveal" data-d="1">I'm happiest when a system is <b>boring in production and interesting to build</b> — and just as happy with a boarding pass in hand.</p>
+        <p class="reveal" data-d="2">Married, based in Seattle, part of a big loud family that fills more group chats than I can keep up with. A fair chunk of my life outside work has gone to Rajasthan, Goa, Cambodia, the Philippines, and Hong Kong — usually with a camera and questionable luggage packing.</p>
+        <p class="reveal" data-d="3">Pick a tab below — engineering is one lane out of several, not the whole road.</p>
       </div>
     </div>
   </section>
 
-  <!-- PRINCIPLES -->
-  <section id="principles">
-    <p class="eyebrow reveal">How I think about the work</p>
-    <div class="principles reveal" data-d="1">
-      <div class="principle"><div class="num">01</div><h3>Boring in production</h3><p>Observable, debuggable, and easy to reason about at 3am beats clever every time.</p></div>
-      <div class="principle"><div class="num">02</div><h3>Friction compounds</h3><p>Small drag in a developer workflow multiplies across a team. Removing it is real leverage.</p></div>
-      <div class="principle"><div class="num">03</div><h3>Architecture, practically</h3><p>Tradeoffs made explicit, abstractions earned — systems left easier to change than I found them.</p></div>
-      <div class="principle"><div class="num">04</div><h3>Curious about AI's edges</h3><p>Especially where it reshapes documentation, review, and how software actually ships.</p></div>
+  <!-- WHAT I'M INTO -->
+  <section id="into">
+    <p class="eyebrow reveal">Pick a lane</p>
+    <div class="into-tabs reveal" data-d="1" id="intoTabs">
+      <button class="into-tab" data-tab="travel">Travel</button>
+      <button class="into-tab" data-tab="ferrari">Ferrari &amp; F1</button>
+      <button class="into-tab" data-tab="tt">Table tennis &amp; cycling</button>
+      <button class="into-tab" data-tab="family">Family &amp; home</button>
+      <button class="into-tab" data-tab="eng">Engineering</button>
     </div>
+    <div class="into-panel reveal" data-d="2" id="intoPanel"></div>
   </section>
 
-  <!-- WORK -->
-  <section id="work">
-    <p class="eyebrow reveal">Building now</p>
-    <a class="work-card reveal" data-d="1" id="glossmd" href="https://github.com/satya-kumaran/glossmd" target="_blank" rel="noopener">
-      <div class="work-head">
-        <h3>glossmd</h3>
-        <span class="work-tag">Active project</span>
-      </div>
-      <p class="desc">Word-style review comments for <b>Markdown that lives in git</b> — portable, append-only, no database. AI is making it easy to produce design docs and specs as Markdown, but the review experience hasn't caught up. glossmd adds select-to-comment review threads without moving the document out of git or locking comments inside a vendor's database.</p>
-      <p class="desc">The interesting bit is the protocol: comments are portable append-only data beside the document, current state is derived by replaying actions, and anchors re-locate against rendered text as the document changes.</p>
-      <div class="chips">
-        <span class="chip">Deterministic reducers</span>
-        <span class="chip">Fuzzy text anchors</span>
-        <span class="chip">Conflict-safe git commits</span>
-        <span class="chip">React</span>
-        <span class="chip">Node</span>
-        <span class="chip">Azure Container Apps</span>
-      </div>
-      <span class="work-link">View on GitHub <span class="arr">↗</span></span>
-    </a>
-    <p class="more-note reveal" data-d="2">More experiments and repos live on <a href="https://github.com/satya-kumaran" target="_blank" rel="noopener">github.com/satya-kumaran</a></p>
+  <!-- TRAVEL -->
+  <section id="travel">
+    <p class="eyebrow reveal">Where I've been</p>
+    <p class="reveal" data-d="1" style="font-size:clamp(1.05rem,2vw,1.3rem);font-family:var(--serif);max-width:60ch;color:var(--text);margin-bottom:2rem">A running, incomplete list of places I've talked my way into and mostly talked my way out of. Click one.</p>
+    <div class="stamp-row reveal" data-d="2" id="stampRow"></div>
+    <div class="stamp-detail" id="stampDetail">Pick a place above.</div>
   </section>
 
-  <!-- STACK -->
-  <section id="stack">
-    <p class="eyebrow reveal">Tools I reach for</p>
-    <div class="stack-row reveal" data-d="1">
-      <span class="tech">C#</span>
-      <span class="tech">.NET</span>
-      <span class="tech">ASP.NET Core</span>
-      <span class="tech">Azure</span>
-      <span class="tech">Docker</span>
-      <span class="tech">OpenAPI</span>
-      <span class="tech">React</span>
-      <span class="tech">Node</span>
+  <!-- RALLY GAME -->
+  <section id="rally">
+    <p class="eyebrow reveal">Off the clock, sort of</p>
+    <p class="reveal" data-d="1" style="font-size:clamp(1.05rem,2vw,1.3rem);font-family:var(--serif);max-width:60ch;color:var(--text);margin-bottom:2rem">I'm competitive at table tennis to a degree that surprises people. Click (or tap) right when the ball reaches your side — see how long you can keep the rally going.</p>
+    <div class="rally-wrap reveal" data-d="2">
+      <div class="rally-row">
+        <div class="rally-score">RALLY <b id="rallyScore">0</b></div>
+        <div class="rally-score">BEST <b id="rallyBest">0</b></div>
+      </div>
+      <canvas id="rallyCanvas" width="640" height="150"></canvas>
+      <p class="rally-hint" id="rallyHint">Click the table to serve.</p>
     </div>
-  </section>
-
-  <!-- ELSEWHERE / PASSPORT -->
-  <section id="elsewhere">
-    <p class="eyebrow reveal">Elsewhere</p>
-    <p class="passport-intro reveal" data-d="1">A running, incomplete list of places I've talked my way into and mostly talked my way out of.</p>
-    <div class="stamps reveal" data-d="2">
-      <div class="stamp">
-        <div class="place">Rajasthan, India</div>
-        <p>Forts, desert heat, and the kind of road trip that reroutes itself every day. <b>27 photos'-worth</b> of proof I didn't want to leave.</p>
-      </div>
-      <div class="stamp">
-        <div class="place">Goa, India</div>
-        <p>Beaches, bad decisions in good weather, and the closest thing I have to a reset button.</p>
-      </div>
-      <div class="stamp">
-        <div class="place">Cambodia</div>
-        <p>Temples older than any system I'll ever design — a useful reminder that <b>most things I build won't outlast the century.</b></p>
-      </div>
-      <div class="stamp">
-        <div class="place">Manila &amp; Boracay, Philippines</div>
-        <p>Proof that the phrase "more fun in the Philippines" is, annoyingly, accurate marketing.</p>
-      </div>
-      <div class="stamp">
-        <div class="place">Hong Kong</div>
-        <p>A city that runs at the pace I secretly wish my deploy pipelines did.</p>
-      </div>
-      <div class="stamp">
-        <div class="place">Sunburn Festival, Bangalore</div>
-        <p>My one credible claim to a music-festival past. The bassline still shows up in my step count.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFF THE CLOCK -->
-  <section id="offclock" class="offclock">
-    <p class="eyebrow reveal">Off the clock</p>
-    <p class="reveal" data-d="1"><span class="hl">Ferrari and Formula 1</span> — not just a fan from the couch. I've stood next to an F430 close enough to fog the paint, and I will not shut up about it if you let me.</p>
-    <p class="reveal" data-d="2">Married, with a family loud enough to fill several group chats. Competitive at table tennis, committed to cycling, and always one browser tab away from booking the next trip.</p>
   </section>
 
 </main>
@@ -359,7 +286,7 @@
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // theme toggle (in-memory only)
+  // theme toggle
   const root = document.documentElement;
   const toggle = document.getElementById('toggle');
   let dark = true;
@@ -379,25 +306,172 @@
   }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // cursor glow (desktop, pointer-fine only)
-  const glow = document.getElementById('glow');
-  if (matchMedia('(pointer:fine)').matches) {
-    addEventListener('mousemove', (e) => {
-      glow.style.opacity = '1';
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-    addEventListener('mouseleave', () => glow.style.opacity = '0');
+  // ---------- what i'm into tabs ----------
+  const intoContent = {
+    travel: {
+      h: 'Travel',
+      body: '<p>Rajasthan, Goa, Cambodia, the Philippines, Hong Kong — if there\'s a flight deal and a free weekend, I\'m probably already gone. I plan itineraries I never follow and pack badly every single time.</p><p>The <b>Where I\'ve been</b> section below has the highlights.</p>'
+    },
+    ferrari: {
+      h: 'Ferrari & F1',
+      body: '<p>Race Sundays are non-negotiable. I\'ve stood close enough to an <b>F430</b> to fog the paint with my breathing, and I will talk your ear off about strategy calls nobody asked me about.</p><p>Team loyalty runs deep and is not up for debate.</p>'
+    },
+    tt: {
+      h: 'Table tennis & cycling',
+      body: '<p>Competitive at the table in a way that surprises people who\'ve just met me — and stubborn on a bike well past the point it stops being fun for whoever I\'m riding with.</p><p>Try the rally game further down if you think you\'ve got quick hands.</p>'
+    },
+    family: {
+      h: 'Family & home',
+      body: '<p>Married, based in Seattle, and part of a big, loud extended family that fills more group chats than I can realistically keep up with.</p><p>Most weekends are some mix of a family call, a bike ride, and a half-finished travel itinerary.</p>'
+    },
+    eng: {
+      h: 'Engineering',
+      body: '<p>I design distributed systems and cloud data platforms at Microsoft — <b>Fabric OneLake</b>, Azure, developer experience. I still enjoy being close to the code after all these years.</p><p>Currently building <b>glossmd</b>: Word-style review comments for Markdown that lives in git — portable, append-only, no database.</p><div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">Azure</span><span class="chip">React</span><span class="chip">Node</span></div><a class="into-link" href="https://github.com/satya-kumaran/glossmd" target="_blank" rel="noopener">View glossmd on GitHub <span class="arr">↗</span></a>'
+    }
+  };
+  const intoTabs = document.getElementById('intoTabs');
+  const intoPanel = document.getElementById('intoPanel');
+  function setIntoTab(key){
+    intoTabs.querySelectorAll('.into-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === key));
+    const c = intoContent[key];
+    intoPanel.innerHTML = '<h3>' + c.h + '</h3>' + c.body;
   }
-
-  // spotlight follows cursor inside the work card
-  document.querySelectorAll('.work-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    });
+  intoTabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('.into-tab');
+    if (!btn) return;
+    setIntoTab(btn.dataset.tab);
   });
+  setIntoTab('travel');
+
+  // ---------- travel stamps ----------
+  const places = [
+    { key: 'raj', name: 'Rajasthan, India', body: 'Forts, desert heat, and the kind of road trip that reroutes itself every day. Twenty-seven photos deep and still didn\'t want to leave.' },
+    { key: 'goa', name: 'Goa, India', body: 'Beaches, bad decisions in good weather, and the closest thing I have to a reset button.' },
+    { key: 'cam', name: 'Cambodia', body: 'Temples older than any system I\'ll ever design — a useful reminder that most things I build won\'t outlast the century.' },
+    { key: 'phi', name: 'Manila & Boracay, Philippines', body: 'Proof that "more fun in the Philippines" is, annoyingly, accurate marketing.' },
+    { key: 'hk', name: 'Hong Kong', body: 'A city that runs at the pace I secretly wish my deploy pipelines did.' },
+    { key: 'sun', name: 'Sunburn Festival, Bangalore', body: 'My one credible claim to a music-festival past. The bassline still shows up in my step count.' }
+  ];
+  const stampRow = document.getElementById('stampRow');
+  const stampDetail = document.getElementById('stampDetail');
+  places.forEach(p => {
+    const b = document.createElement('button');
+    b.className = 'stamp-btn';
+    b.textContent = p.name;
+    b.dataset.key = p.key;
+    b.addEventListener('click', () => {
+      stampRow.querySelectorAll('.stamp-btn').forEach(x => x.classList.toggle('active', x === b));
+      stampDetail.classList.remove('show');
+      setTimeout(() => {
+        stampDetail.innerHTML = '<b>' + p.name + '.</b> ' + p.body;
+        stampDetail.classList.add('show');
+      }, 10);
+    });
+    stampRow.appendChild(b);
+  });
+
+  // ---------- rally game ----------
+  (function(){
+    const canvas = document.getElementById('rallyCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('rallyScore');
+    const bestEl = document.getElementById('rallyBest');
+    const hintEl = document.getElementById('rallyHint');
+    const W = canvas.width, H = canvas.height;
+    const midY = H / 2;
+    const leftX = 40, rightX = W - 40;
+    const zone = 46;
+
+    let ballX, vx, running, awaiting, score = 0, best = 0, lastT = 0;
+
+    function reset(){
+      ballX = leftX;
+      vx = 220;
+      running = true;
+      awaiting = false;
+      score = 0;
+      scoreEl.textContent = score;
+      hintEl.textContent = 'Click when the ball reaches your side.';
+      lastT = performance.now();
+      requestAnimationFrame(loop);
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, W, H);
+      const styles = getComputedStyle(document.documentElement);
+      ctx.strokeStyle = styles.getPropertyValue('--line').trim();
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, midY); ctx.lineTo(W, midY);
+      ctx.stroke();
+
+      // hit zone marker
+      ctx.fillStyle = styles.getPropertyValue('--card-hover').trim();
+      ctx.fillRect(rightX - zone, midY - 30, zone, 60);
+
+      // paddles
+      ctx.fillStyle = styles.getPropertyValue('--muted').trim();
+      ctx.fillRect(leftX - 6, midY - 26, 6, 52);
+      ctx.fillStyle = awaiting ? styles.getPropertyValue('--accent').trim() : styles.getPropertyValue('--muted').trim();
+      ctx.fillRect(rightX, midY - 26, 6, 52);
+
+      // ball
+      ctx.beginPath();
+      ctx.fillStyle = styles.getPropertyValue('--accent').trim();
+      ctx.arc(ballX, midY, 7, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function loop(t){
+      if (!running) return;
+      const dt = Math.min((t - lastT) / 1000, .05);
+      lastT = t;
+      ballX += vx * dt;
+
+      if (vx < 0 && ballX <= leftX) {
+        ballX = leftX;
+        vx = Math.abs(vx);
+      }
+
+      awaiting = vx > 0 && ballX >= rightX - zone;
+
+      if (vx > 0 && ballX >= rightX) {
+        gameOver();
+        return;
+      }
+
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    function hit(){
+      if (!running) { reset(); return; }
+      if (awaiting) {
+        score++;
+        scoreEl.textContent = score;
+        vx = -Math.min(Math.abs(vx) * 1.06, 620);
+        awaiting = false;
+        hintEl.textContent = 'Nice — keep it going.';
+      } else if (ballX < rightX - zone - 4) {
+        hintEl.textContent = 'Too early — wait for the ball.';
+      }
+    }
+
+    function gameOver(){
+      running = false;
+      best = Math.max(best, score);
+      bestEl.textContent = best;
+      hintEl.textContent = 'Rally over at ' + score + '. Click to serve again.';
+      draw();
+    }
+
+    canvas.addEventListener('click', hit);
+    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); hit(); }, { passive: false });
+
+    running = false;
+    draw();
+    hintEl.textContent = 'Click the table to serve.';
+  })();
 </script>
 </body>
 </html>
